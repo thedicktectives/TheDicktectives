@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<title>Lunenburg Lost</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="lunenburglost.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+
+<!-- Header -->
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:700px">
+  <div class="w3-padding-large">
+    <h2>You found the website!</h2>
+      <p>Congratulations on finding the website I set up to share more information
+      with you. It's very basic because I haven't had a lot of time, but it has
+      everything you need.</p>
+
+      <p>My name is Martha Willow and I am an author, professor and historian
+      specialized in the history of Nova Scotia in the 18th century.
+      Over the course of my research work I came upon the location of a mysterious artifact
+      ... but before I could retrieve it I was threatened and I had to go into hiding.</p>
+
+      <b>Please email me now to let me know you have accessed the website and I'll send you a package.</b>
+
+      <p>This package will contain maps, a letter and other items;
+      and combined with the contents of this website, you will have everything you need to
+      pick up where I left off and find the artefact.</p>
+
+      <p>To make sure only you can access the website, I had to protect it with a password
+      which I have hidden in the package you will receive.
+      <br>Here is a clue: <b>look for something in the package that will never be number one.</b> </p>
+
+      <p>Please keep everything confidential and I trust that you will understand the need for
+      such secrecy and precautions when you hear the full story. </p>
+
+      <br>
+      <h2>If you need to email me </h2>
+      <p>martha.willow@lunenburglost.com </p>
+
+      <br>
+      <h2>Access the information I left for you </h2>
+      <p>
+      <p id="id-playerinstructions"> (enter the password) </p>
+      <input type="text" id="id-password1" name="password1" onfocus="this.value=''" value="" size="1"  style="text-align:center;" autofocus oninput="fFocusNext(2)">
+      <input type="text" id="id-password2" name="password2" onfocus="this.value=''" value="" size="1"  style="text-align:center;" oninput="fFocusNext(3)">
+     .
+      <input type="text" id="id-password3" name="password3" onfocus="this.value=''" value="" size="1"  style="text-align:center;" oninput="fFocusNext(4)">
+      <input type="text" id="id-password4" name="password4" onfocus="this.value=''" value="" size="1"  style="text-align:center;" oninput="fFocusNext(5)">
+      <button id="idSubmitPassword" class="w3-light-grey w3-button" onclick="fSubmitPassword()">Check the password</button>
+      </p>
+  </div>
+
+</div>
+
+
+<!-- Footer -->
+<footer>
+  <hr>
+</footer>
+
+<!-- Functions -->
+<script>
+
+
+  function fSubmitPassword() {
+    document.getElementById("idSubmitPassword").disabled = true;
+    let input1 = document.getElementById("id-password1").value;
+    let input2 = document.getElementById("id-password2").value;
+    let input3 = document.getElementById("id-password3").value;
+    let input4 = document.getElementById("id-password4").value;
+    let inputresult = input1.concat(input2).concat(input3).concat(input4);
+    document.getElementById("id-playerinstructions").innerHTML = inputresult;
+    document.getElementById("id-playerinstructions").style.color = "#4CAF50";
+    fCheckInput(inputresult);
+    document.getElementById("idSubmitPassword").disabled = false;
+  }
+
+  function fFocusNext(NextElement) {
+    if (NextElement == "2") {
+      document.getElementById("id-password2").focus();
+    }
+    else if (NextElement == "3") {
+      document.getElementById("id-password3").focus();
+    }
+    else if (NextElement == "4") {
+      document.getElementById("id-password4").focus();
+    }
+    else if (NextElement == "5") {
+      document.getElementById("idSubmitPassword").focus();
+    }
+  }
+
+  function fCheckInput(input) {
+    if (input == "0116") {
+      document.getElementById("id-playerinstructions").innerHTML = "(password is correct)";
+      document.getElementById("id-playerinstructions").style.color = "#4CAF50";
+      window.open("lunenburglost.html","_self");
+    }
+    else {
+      document.getElementById("id-playerinstructions").innerHTML = "(password is incorrect)";
+      document.getElementById("id-playerinstructions").style.color = "#ff4000";
+    }
+  }
+
+
+</script>
+
+</body>
+</html>
